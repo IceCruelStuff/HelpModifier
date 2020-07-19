@@ -14,6 +14,8 @@ use pocketmine\event\player\PlayerCommandPreprocessEvent;
 
 class Main extends PluginBase implements Listener {
 
+	public $config;
+
 	public function dataPath()
 	{
 		return $this->getDataFolder();
