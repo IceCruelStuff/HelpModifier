@@ -1,6 +1,7 @@
 name: HelpModifier
 version: 1.0.0
 author: applqpak
+authors: [applqpak, TheNewHEROBRINEX, IceCruelStuff]
 api: 3.14.0
 main: HelpModifier\Main
 commands:
