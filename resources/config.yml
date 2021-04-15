@@ -1,0 +1,16 @@
+enable-help: true
+
+# Page name can be anything
+# You can add as many pages as you like
+pages:
+  page-name: # This can be anything
+    message-1: first message
+    message-2: second message
+    message-3: third message
+    message-4: forth message
+    message-5: fifth message
+    message-6: sixth message
+    message-7: seventh message
+    message-8: eighth message
+    message-9: ninth message
+    message-10: tenth message
