@@ -8,7 +8,7 @@
 
 Modify the /help command!
 
-You can modify unlimited pages, with 10 messages for each page.
+You can modify unlimited pages, with 10 messages per page.
 
 ## How to use
 Download the latest release from **[GitHub Releases](https://github.com/IceCruelStuff/HelpModifier/releases)**.
