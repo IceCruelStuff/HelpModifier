@@ -8,13 +8,13 @@ use pocketmine\command\PluginIdentifiableCommand;
 use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat;
 use pocketmine\Player;
-use HelpModifier\HelpModifier;
+use HelpModifier\Main;
 
 class DisableHelpCommand extends Command implements PluginIdentifiableCommand {
 
     private $plugin;
 
-    public function __construct(HelpModifier $plugin) {
+    public function __construct(Main $plugin) {
         $this->plugin = $plugin;
         parent::__construct(
             "disablehelp",
