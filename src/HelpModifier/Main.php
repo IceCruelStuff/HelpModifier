@@ -45,7 +45,7 @@ class Main extends PluginBase implements Listener
         $this->getConfig()->save();
     }
 
-    private static function convert($number)
+    private static function convert($input)
     {
         static $delims = " \-,.!?:;\\/&\(\)\[\]";
         static $tokens = [
@@ -225,39 +225,6 @@ class Main extends PluginBase implements Listener
                 }
             }
         }
-    }
-
-    public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool
-    {
-        switch ($command->getName()) {
-            case "enablehelp":
-                if ($sender->hasPermission("help.enable")) {
-                    if ($this->config->get("enable-help") == true) {
-                        $sender->sendMessage(TextFormat::RED . "Help is already enabled");
-                    } else if ($this->config->get("enable-help") == false) {
-                        $this->config->set("enable-help", true);
-                        $this->config->save();
-                        $sender->sendMessage(TextFormat::GREEN . "Help has been enabled");
-                    }
-                } else {
-                    $sender->sendMessage(TextFormat::RED . "You do not have permission to run this command");
-                }
-                break;
-            case "disablehelp":
-                if ($sender->hasPermission("help.disable")) {
-                    if ($this->config->get("enable-help") == false) {
-                        $sender->sendMessage(TextFormat::RED . "Help is already disabled");
-                    } else if ($this->config->get("enable-help") == true) {
-                        $this->config->set("enable-help", false);
-                        $this->config->save();
-                        $sender->sendMessage(TextFormat::GREEN . "Help has been disabled");
-                    }
-                } else {
-                    $sender->sendMessage(TextFormat::RED . "You do not have permission to run this command");
-                }
-                break;
-        }
-        return true;
     }
 
 }
