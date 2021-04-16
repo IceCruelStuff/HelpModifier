@@ -167,7 +167,15 @@ class Main extends PluginBase implements Listener
         $accumulator = [];
         $getNumeral = function () use ($mutate, &$accumulator, &$result) {
             $last = end($accumulator);
-            $result[] = $mutate($accumulator) . (isset($last['suffix']) ? $last['suffix'] : '') . (isset($last['delim']) ? $last['delim'] : '');
+            $suffix = '';
+            $delim = '';
+            if (isset($last['suffix'])) {
+                $suffix = $last['suffix'];
+            }
+            if (isset($last['delim'])) {
+                $delim = $last['delim'];
+            }
+            $result[] = $mutate($accumulator) . $suffix . $delim;
             $accumulator = [];
         };
         foreach ($prepared as $part) {
