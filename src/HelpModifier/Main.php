@@ -4,11 +4,14 @@ namespace HelpModifier;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\permission\Permission;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\utils\TextFormat;
 use pocketmine\utils\Config;
 use pocketmine\event\player\PlayerCommandPreprocessEvent;
+use HelpModifier\command\EnableHelpCommand;
+use HelpModifier\command\DisableHelpCommand;
 
 class Main extends PluginBase implements Listener
 {
@@ -30,6 +33,11 @@ class Main extends PluginBase implements Listener
         foreach ($this->getConfig()->get("pages") as $page) {
             $this->pages[] = $page;
         }
+
+        $this->getServer()->getPluginManager()->addPermission(new Permission("help.enable", "Allows user to use /enablehelp", Permission::DEFAULT_OP));
+        $this->getServer()->getPluginManager()->addPermission(new Permission("help.disable", "Allows user to use /disablehelp", Permission::DEFAULT_OP));
+        $this->getServer()->getCommandMap()->register("enablehelp", new EnableHelpCommand($this));
+        $this->getServer()->getCommandMap()->register("disablehelp", new DisableHelpCommand($this));
     }
 
     public function onDisable() : void
